@@ -1,0 +1,19 @@
+{% if categories %}
+    <div class="card" style="width: 15rem;">
+      <div class="card-header">
+        <b>Category</b>
+      </div>
+      <ul class="list-group list-group-flush">
+          {% if categories %}
+              {% for category in categories %}
+                  <li class="list-group-item">
+                  <a href="{{ url_for('.show_posts', category_id=category.id) }}">{{ category.name }}</a>
+                  </li>
+              {% endfor %}
+          {% endif %}
+      </ul>
+    </div>
+    <div style="padding-top: 10px; width: 15rem; text-align: center;">
+        <a href="https://info.flagcounter.com/bojN"><img src="https://s11.flagcounter.com/countxl/bojN/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+    </div>
+{% endif %}

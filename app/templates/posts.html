@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block content %}
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-4">
+            {% include "category.html" %}
+        </div>
+        {% if posts %}
+            <div class="col-sm-8">
+                {% include "_posts.html" %}
+            <div style="text-align: center; margin-top: 20px;">
+                {{  macros.pagination_widget(pagination, 'show_posts') }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

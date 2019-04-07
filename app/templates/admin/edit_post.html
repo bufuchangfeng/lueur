@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="post">
+        {{ form.csrf_token }}
+        <div class="card" style="margin-top: 20px;">
+            <div style="padding: 10px 10px 10px 10px;">
+                <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <b>{{ form.title.label }}</b>
+                         {{ form.title(class="form-control") }}
+                     </div>
+                    <div class="form-group col-md-6">
+                        <b>{{ form.category.label }}</b>
+                        {{ form.category(class="form-control") }}
+                    </div>
+                </div>
+                <div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </div>
+        </div>
+        <div id="editor" style="margin-top: 20px;">
+            {{ form.body }}
+        </div>
+    </form>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+			let editor;
+            $(function() {
+                editor = editormd("editor", {
+                    width   : "100%",
+                    height  : "100%",
+                    syncScrolling : "single",
+                    path    : "../../static/js/editormd/lib/"
+                });
+            });
+</script>
+{% endblock %}
